@@ -128,4 +128,86 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   }
+
+  /* ---------- Observatorio de Actualidad (informes automáticos) ---------- */
+  var informesLista = document.querySelector("#informes-lista");
+  if (informesLista) {
+    var INFORMES_BASE = "https://ippmccl.github.io/IPP-WEB/";
+    var INFORMES_PAGE_SIZE = 6;
+    var informesTodos = [];
+    var informesFiltrados = [];
+    var informesMostrados = 0;
+    var moreRow = document.querySelector("#informes-more-row");
+    var moreBtn = document.querySelector("#informes-cargar-mas");
+    var filtros = document.querySelector("#informes-filtros");
+
+    var escapeHtml = function (str) {
+      var div = document.createElement("div");
+      div.textContent = str || "";
+      return div.innerHTML;
+    };
+
+    var informeCardHtml = function (item) {
+      var href = item.link ? (INFORMES_BASE + item.link) : (item.linkPdf || INFORMES_BASE);
+      return (
+        '<article class="post-card">' +
+          '<div class="post-body">' +
+            '<span class="post-tag">' + escapeHtml(item.fechaCorta) + "</span>" +
+            '<h3 style="font-size:1.05rem; margin-bottom:.4em;">' + escapeHtml(item.titulo) + "</h3>" +
+            '<p style="color:var(--color-text-soft); flex:1;">' + escapeHtml(item.resumen) + "</p>" +
+            '<a href="' + href + '" target="_blank" rel="noopener" class="card-link">Leer el informe →</a>' +
+          "</div>" +
+        "</article>"
+      );
+    };
+
+    var renderInformes = function (reset) {
+      if (reset) { informesLista.innerHTML = ""; informesMostrados = 0; }
+      var siguientes = informesFiltrados.slice(informesMostrados, informesMostrados + INFORMES_PAGE_SIZE);
+      siguientes.forEach(function (item) {
+        informesLista.insertAdjacentHTML("beforeend", informeCardHtml(item));
+      });
+      informesMostrados += siguientes.length;
+      if (moreRow) moreRow.style.display = informesMostrados < informesFiltrados.length ? "flex" : "none";
+      if (!informesFiltrados.length) {
+        informesLista.innerHTML = '<p class="form-note">No hay informes para este filtro por ahora.</p>';
+      }
+    };
+
+    var aplicarFiltro = function (audiencia) {
+      informesFiltrados = informesTodos.filter(function (item) {
+        if (audiencia === "todos") return true;
+        return item.audiencia === audiencia || item.audiencia === "ambos";
+      });
+      renderInformes(true);
+    };
+
+    fetch(INFORMES_BASE + "informes.json")
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        informesTodos = Array.isArray(data) ? data : [];
+        aplicarFiltro("todos");
+      })
+      .catch(function () {
+        informesLista.innerHTML =
+          '<p class="form-note">No se ha podido cargar la actualidad en este momento. <a href="' +
+          INFORMES_BASE + '" target="_blank" rel="noopener">Consúltala aquí directamente</a>.</p>';
+      });
+
+    if (filtros) {
+      filtros.addEventListener("click", function (e) {
+        var btn = e.target.closest(".filter-pill");
+        if (!btn) return;
+        Array.prototype.forEach.call(filtros.querySelectorAll(".filter-pill"), function (b) {
+          b.classList.remove("is-active");
+        });
+        btn.classList.add("is-active");
+        aplicarFiltro(btn.dataset.audiencia);
+      });
+    }
+
+    if (moreBtn) {
+      moreBtn.addEventListener("click", function () { renderInformes(false); });
+    }
+  }
 });
