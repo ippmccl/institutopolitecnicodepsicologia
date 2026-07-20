@@ -65,9 +65,6 @@
       <span class="eyebrow">Actualidad</span>
       <h1>Noticias y novedades</h1>
       <p class="lead">El Observatorio de Actualidad del Instituto recoge, de forma periódica, lo más relevante en psicología y neuropsicología: investigación reciente, cambios normativos y herramientas útiles para profesionales y público general.</p>
-      <div class="btn-row">
-        <a href="https://www.institutopolitecnicodepsicologia.es/noticias-y-novedades" target="_blank" rel="noopener" class="btn btn-primary">Ver la actualidad completa</a>
-      </div>
     </div>
   </section>
   <section>
@@ -85,6 +82,27 @@
           <h3>Claves prácticas</h3>
           <p>Una selección orientativa de lo más útil de cada semana para profesionales y público general.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Informe diario</span>
+        <h2>Lo último del Observatorio</h2>
+        <p>Se actualiza automáticamente cada día, elaborado por M. Carmen Cabello León.</p>
+      </div>
+      <div class="filter-row" id="informes-filtros">
+        <button type="button" class="filter-pill is-active" data-audiencia="todos">Todos</button>
+        <button type="button" class="filter-pill" data-audiencia="profesionales">Para profesionales</button>
+        <button type="button" class="filter-pill" data-audiencia="publico">Para el público</button>
+      </div>
+      <div id="informes-lista" class="post-list">
+        <p class="form-note">Cargando la actualidad más reciente…</p>
+      </div>
+      <div class="btn-row" id="informes-more-row" style="justify-content:center; margin-top:26px; display:none;">
+        <button type="button" class="btn btn-secondary" id="informes-cargar-mas">Ver más informes</button>
       </div>
     </div>
   </section>
