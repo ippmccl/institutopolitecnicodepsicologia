@@ -291,6 +291,22 @@ section { padding: 72px 0; }
 .stripe-note h2 { color: var(--color-text-inverse); }
 .stripe-note p { color: rgba(255,255,255,.85); }
 
+/* ---------- Filtros (Observatorio de Actualidad) ---------- */
+.filter-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 28px 0 34px; }
+.filter-pill {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--color-lavender-300);
+  background: var(--color-white);
+  color: var(--color-lavender-700);
+  font-weight: 700;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.filter-pill:hover { background: var(--color-lavender-50); }
+.filter-pill.is-active { background: var(--color-lavender-700); border-color: var(--color-lavender-700); color: var(--color-text-inverse); }
+
 /* ---------- Listados (blog / recursos / recorridos) ---------- */
 .post-list, .resource-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .post-card, .resource-card {
