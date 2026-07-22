@@ -351,6 +351,43 @@ section { padding: 72px 0; }
 }
 .article-references li { margin-bottom: 6px; }
 
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0 30px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--color-border);
+}
+.article-meta img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  flex-shrink: 0;
+}
+.article-meta-text { font-size: .85rem; color: var(--color-text-soft); line-height: 1.5; }
+.article-meta-text strong { color: var(--color-text); }
+
+.related-articles {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+}
+.related-articles h4 {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 12px;
+}
+.related-articles ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.related-articles a { color: var(--color-lavender-700); font-weight: 700; text-decoration: none; }
+.related-articles a:hover { text-decoration: underline; }
+
 /* ---------- Listados (blog / recursos / recorridos) ---------- */
 .post-list, .resource-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .post-card, .resource-card {
