@@ -307,6 +307,50 @@ section { padding: 72px 0; }
 .filter-pill:hover { background: var(--color-lavender-50); }
 .filter-pill.is-active { background: var(--color-lavender-700); border-color: var(--color-lavender-700); color: var(--color-text-inverse); }
 
+/* ---------- Cuerpo de artículo (blog) ---------- */
+.article-body h2 { font-size: 1.35rem; margin-top: 1.2em; }
+.article-body h3 { font-size: 1.1rem; margin-top: 1.1em; color: var(--color-lavender-700); }
+.article-body p { color: var(--color-text); }
+.article-body ul { list-style: none; margin: 0 0 1.2em; padding: 0; }
+.article-body ul li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+.article-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-lavender-600);
+}
+.article-body ul li strong { color: var(--color-lavender-700); }
+.article-references {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+}
+.article-references h4 {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+  margin-bottom: 10px;
+}
+.article-references ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: .85rem;
+  color: var(--color-text-soft);
+}
+.article-references li { margin-bottom: 6px; }
+
 /* ---------- Listados (blog / recursos / recorridos) ---------- */
 .post-list, .resource-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
 .post-card, .resource-card {
