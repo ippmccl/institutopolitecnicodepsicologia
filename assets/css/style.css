@@ -50,6 +50,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  overflow-x: hidden; /* evita el scroll horizontal fantasma del menú móvil off-canvas (fix 31/07/2026) */
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-bg);
