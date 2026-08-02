@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -77,48 +77,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/enfado.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/agorafobia.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/mente-no-para.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/autoexigencia.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/autoestima.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/cambio-personal.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/intimidad-digital.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
 
   <!-- Recursos digitales -->
   <url>
@@ -135,9 +93,9 @@
   </url>
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/familias.html</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/infantojuvenil.html</loc>
@@ -151,71 +109,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-orden-pensamientos.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-noapetece.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-dormir.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-comparacion.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-comunicar.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-toc.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-ansiedad-salud.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-acumulacion.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-panico.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/recursos-digitales/guia-agorafobia.html</loc>
-    <lastmod>2026-07-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
-  <!-- Blog -->
+  <!-- Blog: publicados -->
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/blog/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -226,109 +124,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/tdah.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/agorafobia.html</loc>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/panico.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/alzheimer.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/apagon.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/atencion.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/autoimagen.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/baile.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/bullyng.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/cancer.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/celos.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/crisis-sensoriales.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/depresion.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/duelo.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/estres-laboral.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/estres.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/gestion-del-tiempo.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/lectura.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.institutopolitecnicodepsicologia.es/blog/panico.html</loc>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/agorafobia.html</loc>
     <lastmod>2026-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -340,22 +142,120 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/alzheimer.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: en cola (aún no publicados, se sube fecha real al publicar) -->
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/tdah.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/apagon.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/atencion.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/autoimagen.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/baile.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/bullyng.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/cancer.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/celos.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/crisis-sensoriales.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/depresion.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/duelo.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/estres-laboral.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/estres.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/gestion-del-tiempo.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.institutopolitecnicodepsicologia.es/blog/lectura.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/blog/tea.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/blog/tea-altas-capacidades.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.institutopolitecnicodepsicologia.es/blog/vinculo-que-nos-marca.html</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.4</priority>
   </url>
 
   <!-- Legales -->
