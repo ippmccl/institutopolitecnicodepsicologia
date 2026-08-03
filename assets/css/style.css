@@ -502,6 +502,13 @@ body.has-cookie-banner .whatsapp-float { bottom: 132px; }
   .brand img { height: 38px; }
   .brand-name { font-size: .88rem; }
   .brand-name small { display: none; }
+   /* Fix 03/08/2026: el backdrop-filter de .site-header crea un "containing
+     block" para sus descendientes en position:fixed. Eso hacía que el panel
+     del menú móvil (.main-nav, position:fixed) quedara encajonado dentro de
+     la cabecera en vez de ocupar toda la pantalla: el botón (≡) respondía,
+     pero el menú se abría encogido e invisible en la práctica. Se desactiva
+     el desenfoque solo en este breakpoint; en escritorio no cambia nada. */
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
 
   .main-nav { position: fixed; top: 60px; left: 0; right: 0; bottom: 0; background: var(--color-bg); flex-direction: column; align-items: stretch; padding: 20px; overflow-y: auto; transform: translateX(100%); transition: transform .25s ease; }
   .main-nav.is-open { transform: translateX(0); }
