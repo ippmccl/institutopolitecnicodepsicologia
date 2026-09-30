@@ -540,3 +540,10 @@ body.has-cookie-banner .whatsapp-float { bottom: 132px; }
 @media (max-width: 720px) {
      .video-frame .play-btn { width: 60px; height: 60px; }
 }
+
+/* Selector de idioma (castellano/catala) sobre el video de presentacion del curso. */
+.video-lang-toggle { display: flex; justify-content: center; gap: .5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.video-lang-btn { padding: .5rem 1.25rem; border-radius: 999px; border: 1px solid var(--color-lavender-700); background: #fff; color: var(--color-lavender-700); font-weight: 600; cursor: pointer; transition: background .15s ease, color .15s ease; }
+   .video-lang-btn.is-active { background: var(--color-lavender-700); color: #fff; }
+.video-lang-btn:hover { opacity: .9; }
+

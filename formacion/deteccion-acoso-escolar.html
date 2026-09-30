@@ -9,7 +9,10 @@
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"VideoObject","name":"Deteccion y abordaje del acoso escolar - video de presentacion del curso","description":"Video de presentacion del curso online «Deteccion y abordaje del acoso escolar», del Instituto Politecnico de Psicologia: que aprenderas, a quien va dirigido y como se organiza la formacion.","thumbnailUrl":["https://i.ytimg.com/vi/CTCi3a_xfG4/maxresdefault.jpg"],"uploadDate":"2026-09-30","duration":"PT14M55S","contentUrl":"https://www.youtube.com/watch?v=CTCi3a_xfG4","embedUrl":"https://www.youtube-nocookie.com/embed/CTCi3a_xfG4","publisher":{"@type":"Organization","name":"Instituto Politecnico de Psicologia","logo":{"@type":"ImageObject","url":"https://www.institutopolitecnicodepsicologia.es/assets/img/logo-ipp.jpg"}}}
   </script>
-<link rel="icon" href="../assets/img/logo-ipp.jpg">
+  <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"VideoObject","name":"Deteccio i abordatge de l'assetjament escolar - video de presentacio del curs","description":"Video de presentacio del curs online «Deteccio i abordatge de l'assetjament escolar», de l'Institut Politecnic de Psicologia: que aprendras, a qui va dirigit i com s'organitza la formacio.","thumbnailUrl":["https://i.ytimg.com/vi/wsq4b4R19No/maxresdefault.jpg"],"uploadDate":"2026-09-30","duration":"PT15M25S","contentUrl":"https://www.youtube.com/watch?v=wsq4b4R19No","embedUrl":"https://www.youtube-nocookie.com/embed/wsq4b4R19No","inLanguage":"ca","publisher":{"@type":"Organization","name":"Instituto Politecnico de Psicologia","logo":{"@type":"ImageObject","url":"https://www.institutopolitecnicodepsicologia.es/assets/img/logo-ipp.jpg"}}}
+  </script>
+  <link rel="icon" href="../assets/img/logo-ipp.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
@@ -97,8 +100,12 @@
                             <h2>Conoce el curso en menos de 15 minutos</h2>
                           <p>Antes de matricularte, mira este vídeo donde te cuento qué vas a aprender, cómo está organizado el curso y a quién va dirigido.</p>
                   </div>
-                <div class="video-embed">
-                        <div class="video-frame" id="courseVideoFrame" role="button" tabindex="0" aria-label="Reproducir vídeo de presentación del curso Detección y abordaje del acoso escolar">
+                                <div class="video-lang-toggle" role="tablist" aria-label="Idioma del video">
+                                                          <button type="button" class="video-lang-btn is-active" data-lang="es" role="tab" aria-selected="true">Castellano</button>
+                                                          <button type="button" class="video-lang-btn" data-lang="ca" role="tab" aria-selected="false">Catala</button>
+                                </div>
+            <div class="video-embed">
+                        <div class="video-frame" id="courseVideoFrame" data-video-es="CTCi3a_xfG4" data-video-ca="wsq4b4R19No" role="button" tabindex="0" aria-label="Reproducir vídeo de presentación del curso Detección y abordaje del acoso escolar">
                                   <img src="https://i.ytimg.com/vi/CTCi3a_xfG4/maxresdefault.jpg" alt="Vídeo de presentación del curso Detección y abordaje del acoso escolar - Instituto Politécnico de Psicología" loading="lazy">
                                   <span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="#6d4a95"><path d="M8 5v14l11-7z"></path></svg></span>
                         </div>
@@ -276,7 +283,7 @@
 </div>
 
 <script src="../assets/js/main.js"></script>
-  <script>(function(){var frame=document.getElementById('courseVideoFrame');if(!frame)return;function playVideo(){frame.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/CTCi3a_xfG4?autoplay=1&rel=0" title="Video: Deteccion y abordaje del acoso escolar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';}frame.addEventListener('click',playVideo);frame.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playVideo();}});})();</script>
+  <script>(function(){var frame=document.getElementById('courseVideoFrame');if(!frame)return;var currentLang='es';function playVideo(){var id=currentLang==='ca'?frame.getAttribute('data-video-ca'):frame.getAttribute('data-video-es');frame.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" title="Video: Deteccion y abordaje del acoso escolar" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';}function resetFrame(){var id=currentLang==='ca'?frame.getAttribute('data-video-ca'):frame.getAttribute('data-video-es');var alt=currentLang==='ca'?'Video de presentacio del curs Deteccio i abordatge de l\'assetjament escolar':'Video de presentacion del curso Deteccion y abordaje del acoso escolar';frame.innerHTML='<img src="https://i.ytimg.com/vi/'+id+'/maxresdefault.jpg" alt="'+alt+'" loading="lazy"><span class="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="#6d4a95"><path d="M8 5v14l11-7z"></path></svg></span>';}frame.addEventListener('click',playVideo);frame.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playVideo();}});var langBtns=document.querySelectorAll('.video-lang-btn');langBtns.forEach(function(btn){btn.addEventListener('click',function(){var lang=btn.getAttribute('data-lang');if(lang===currentLang)return;currentLang=lang;langBtns.forEach(function(b){b.classList.remove('is-active');b.setAttribute('aria-selected','false');});btn.classList.add('is-active');btn.setAttribute('aria-selected','true');resetFrame();});});})();</script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
