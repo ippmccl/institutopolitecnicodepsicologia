@@ -222,7 +222,7 @@ section { padding: 72px 0; }
   gap: 48px;
   align-items: center;
 }
-.hero-art img { border-radius: var(--radius-l); box-shadow: var(--shadow-soft); }
+.hero-art img { border-radius: var(--radius-l); box-shadow: var(--shadow-soft); height: auto; }
 .hero h1 { margin-bottom: .4em; }
 .hero .lead { font-size: 1.15rem; color: var(--color-text-soft); max-width: 52ch; }
 .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
