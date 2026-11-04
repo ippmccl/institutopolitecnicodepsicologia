@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" fill="none" stroke="#6A3D96" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+  <title>Instituto Politécnico de Psicología</title>
+  <!-- suelo y tallo -->
+  <path d="M62 1205 C230 1010 420 880 600 868 C760 858 880 900 962 972 C985 990 990 960 984 900 C968 760 905 560 893 430 C880 300 920 200 1010 110 C1080 40 1160 20 1188 52"/>
+  <!-- ala inferior izquierda y lazo -->
+  <path d="M515 858 C440 870 385 845 390 805 C398 760 455 738 485 742 C510 745 530 765 515 778 C495 792 470 768 462 748"/>
+  <!-- ala superior izquierda y cuerpo -->
+  <path d="M462 748 C425 712 400 660 398 570 C396 505 425 470 460 478 C510 490 580 600 612 690 C628 740 620 780 595 780 C572 780 580 735 615 678"/>
+  <!-- ala derecha -->
+  <path d="M615 678 C665 590 740 515 815 518 C850 522 845 580 815 640 C785 700 750 750 720 782 C650 805 580 835 552 862 C540 878 560 885 600 875 C660 860 700 815 720 782"/>
+</svg>
