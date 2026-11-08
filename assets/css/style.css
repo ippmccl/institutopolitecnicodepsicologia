@@ -547,3 +547,15 @@ body.has-cookie-banner .whatsapp-float { bottom: 132px; }
    .video-lang-btn.is-active { background: var(--color-lavender-700); color: #fff; }
 .video-lang-btn:hover { opacity: .9; }
 
+
+
+/* Preguntas frecuentes (details nativo, sin JS) */
+.faq-section h2 { text-align: center; }
+.faq-list { max-width: 820px; margin: 28px auto 0; display: grid; gap: 12px; }
+.faq-item { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-m); }
+.faq-item summary { cursor: pointer; list-style: none; padding: 18px 22px; font-weight: 700; color: var(--color-text); display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; font-size: 1.4em; line-height: 1; color: var(--color-lavender-600); }
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item summary:focus-visible { outline: 2px solid var(--color-lavender-600); outline-offset: 2px; }
+.faq-item p { padding: 0 22px 20px; margin: 0; color: var(--color-text-soft); }
