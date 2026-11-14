@@ -1,3 +1,4 @@
+import { later, factor } from './pace.js';
 // Mentalia Mates · juegos de fracciones: primero partes iguales de un entero (pizza, tiras de papel),
 // después equivalencias y comparación, y al final emparejar dibujo y número (memory).
 const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
@@ -63,10 +64,10 @@ function pizzeria(main, api) {
       const set = new Set([ans, `${d}/${n}`, `${n}/${d + 1 > 8 ? d - 1 : d + 1}`, `${d - n}/${d}`]); set.delete('0/' + d);
       let err = false;
       const row = h('div', { class: 'opts' }, ...shuffle([...set]).slice(0, 4).map(f => { const [a, b] = f.split('/').map(Number); return optBtn(api, f, frTxt(a, b, T), (v, el) => {
-        if (v === ans) { if (!err) ok++; el.classList.add('glow'); speak(T(`¡Sí! ${frTxt(n, d, T)}: ${n} trozos de ${d}.`, `Sí! ${frTxt(n, d, T)}: ${n} trossos de ${d}.`)); setTimeout(next, 2200); }
+        if (v === ans) { if (!err) ok++; el.classList.add('glow'); speak(T(`¡Sí! ${frTxt(n, d, T)}: ${n} trozos de ${d}.`, `Sí! ${frTxt(n, d, T)}: ${n} trossos de ${d}.`)); later(next, 2200); }
         else { err = true; el.classList.add('no'); speak(T('Fíjate: abajo, en cuántos trozos se corta; arriba, cuántos te has comido.', 'Fixa-t\'hi: a sota, en quants trossos es talla; a dalt, quants te n\'has menjat.')); }
       }); }));
-      main.append(h('h2', { class: 'qtext' }, q2, ' ', speakBtn(q2)), row, api.dontKnow(() => ans, () => setTimeout(next, 3200)));
+      main.append(h('h2', { class: 'qtext' }, q2, ' ', speakBtn(q2)), row, api.dontKnow(() => ans, () => later(next, 3200)));
       speak(q2);
     });
     main.append(h('h2', { class: 'qtext' }, '🍕 ', q, ' ', speakBtn(q)), h('div', {}, pz), count, done);
@@ -97,7 +98,7 @@ function toppings(main, api) {
       let err = false;
       check.addEventListener('click', () => {
         const cq = put.filter(x => x === 'q').length, cm = put.filter(x => x === 'm').length;
-        if (cq === want.q && cm === want.m) { if (!err) ok++; speak(T('¡Pizza perfecta! Al horno.', 'Pizza perfecta! Al forn.')); pz.classList.add('bake'); setTimeout(next, 2200); }
+        if (cq === want.q && cm === want.m) { if (!err) ok++; speak(T('¡Pizza perfecta! Al horno.', 'Pizza perfecta! Al forn.')); pz.classList.add('bake'); later(next, 2200); }
         else { err = true; speak(T(`Llevas ${cq} de queso y ${cm} de champiñones. Necesitas ${want.q} y ${want.m}.`, `Portes ${cq} de formatge i ${cm} de xampinyons. En necessites ${want.q} i ${want.m}.`)); }
       });
       main.append(h('h2', { class: 'qtext' }, '👨‍🍳 ', q, ' ', speakBtn(q)), tools, h('div', {}, pz), check);
@@ -111,12 +112,12 @@ function toppings(main, api) {
       const p1 = pizza(h, b, { fill: i => (i < a ? '#F28B7A' : null), size: 160 }), p2 = pizza(h, d, { fill: i => (i < c ? '#F28B7A' : null), size: 160 });
       let err = false;
       const pick = v => (yes, el) => {
-        if ((v === 'si') === same) { if (!err) ok++; el.classList.add('glow'); speak(same ? T(`¡Sí! ${a}/${b} y ${c}/${d} son la misma cantidad: son fracciones equivalentes.`, `Sí! ${a}/${b} i ${c}/${d} són la mateixa quantitat: són fraccions equivalents.`) : T(`¡Bien visto! No es lo mismo: hay más pizza en ${a * d > b * c ? a + '/' + b : c + '/' + d}.`, `Ben vist! No és el mateix: hi ha més pizza a ${a * d > b * c ? a + '/' + b : c + '/' + d}.`)); setTimeout(next, 3200); }
+        if ((v === 'si') === same) { if (!err) ok++; el.classList.add('glow'); speak(same ? T(`¡Sí! ${a}/${b} y ${c}/${d} son la misma cantidad: son fracciones equivalentes.`, `Sí! ${a}/${b} i ${c}/${d} són la mateixa quantitat: són fraccions equivalents.`) : T(`¡Bien visto! No es lo mismo: hay más pizza en ${a * d > b * c ? a + '/' + b : c + '/' + d}.`, `Ben vist! No és el mateix: hi ha més pizza a ${a * d > b * c ? a + '/' + b : c + '/' + d}.`)); later(next, 3200); }
         else { err = true; el.classList.add('no'); speak(T('Mira bien cuánto espacio pintado hay en cada pizza.', 'Mira bé quant espai pintat hi ha a cada pizza.')); }
       };
       main.append(h('h2', { class: 'qtext' }, '🤔 ', q, ' ', speakBtn(q)), h('div', { class: 'vs' }, h('div', {}, p1, h('b', { class: 'frl' }, `${a}/${b}`)), h('b', {}, '='), h('div', {}, p2, h('b', { class: 'frl' }, `${c}/${d}`))),
         h('div', { class: 'opts' }, optBtn(api, '✅ ' + T('Sí', 'Sí'), T('Sí, es lo mismo', 'Sí, és el mateix'), pick('si')), optBtn(api, '❌ ' + T('No', 'No'), T('No, no es lo mismo', 'No, no és el mateix'), pick('no'))),
-        api.dontKnow(() => (same ? T('sí, es lo mismo', 'sí, és el mateix') : T('no es lo mismo', 'no és el mateix')), () => setTimeout(next, 3400)));
+        api.dontKnow(() => (same ? T('sí, es lo mismo', 'sí, és el mateix') : T('no es lo mismo', 'no és el mateix')), () => later(next, 3400)));
       speak(q);
     }
   }
@@ -144,9 +145,9 @@ function strips(main, api) {
       const under = h('div', { class: 'wrow under' });
       const w = wall(p => { if (p._d !== b || p.classList.contains('used')) { speak(T(`Busca los trozos de 1/${b}.`, `Busca els trossos d'1/${b}.`)); return; } p.classList.add('used'); placed++;
         under.append(h('div', { class: 'wp', style: { '--c': COL[b], flex: `0 0 ${100 / b}%` } }, `1/${b}`)); speak(String(placed));
-        if (placed === need) { ok++; speak(T(`¡Caben ${need}! ${need} trozos de 1/${b} son lo mismo que 1/${a}.`, `Hi caben ${need}! ${need} trossos d'1/${b} són el mateix que 1/${a}.`)); setTimeout(next, 3000); }
+        if (placed === need) { ok++; speak(T(`¡Caben ${need}! ${need} trozos de 1/${b} son lo mismo que 1/${a}.`, `Hi caben ${need}! ${need} trossos d'1/${b} són el mateix que 1/${a}.`)); later(next, 3000); }
       }, [b]);
-      main.append(h('h2', { class: 'qtext' }, '📏 ', q, ' ', speakBtn(q)), target, under, h('p', { class: 'hint' }, '⬇️'), w, api.dontKnow(() => need, () => setTimeout(next, 3200)));
+      main.append(h('h2', { class: 'qtext' }, '📏 ', q, ' ', speakBtn(q)), target, under, h('p', { class: 'hint' }, '⬇️'), w, api.dontKnow(() => need, () => later(next, 3200)));
       speak(q);
     } else {
       // ¿qué trozo es más grande?
@@ -156,10 +157,10 @@ function strips(main, api) {
       let err = false;
       const w = wall(p => {
         if (p._d !== a && p._d !== b) { speak(T(`Busca los trozos de 1/${a} y de 1/${b}.`, `Busca els trossos d'1/${a} i d'1/${b}.`)); return; }
-        if (p._d === big) { if (!err) ok++; p.classList.add('ok'); speak(T(`¡Sí! 1/${big} es más grande: la tira está partida en menos trozos.`, `Sí! 1/${big} és més gran: la tira està partida en menys trossos.`)); setTimeout(next, 3000); }
+        if (p._d === big) { if (!err) ok++; p.classList.add('ok'); speak(T(`¡Sí! 1/${big} es más grande: la tira está partida en menos trozos.`, `Sí! 1/${big} és més gran: la tira està partida en menys trossos.`)); later(next, 3000); }
         else { err = true; p.classList.add('no'); speak(T('Ese es más pequeño. ¡Compara el tamaño!', 'Aquest és més petit. Compara la mida!')); }
       });
-      main.append(h('h2', { class: 'qtext' }, '📏 ', q, ' ', speakBtn(q)), w, api.dontKnow(() => `1/${big}`, () => setTimeout(next, 3200)));
+      main.append(h('h2', { class: 'qtext' }, '📏 ', q, ' ', speakBtn(q)), w, api.dontKnow(() => `1/${big}`, () => later(next, 3200)));
       speak(q);
     }
   }
@@ -186,8 +187,8 @@ function memory(main, api) {
         tries++; lock = true;
         const [[b1, c1], [b2, c2]] = open;
         if (c1.k === c2.k && c1.pic !== c2.pic) { found++; b1.classList.add('ok'); b2.classList.add('ok'); open = []; lock = false; speak(T('¡Pareja!', 'Parella!'));
-          if (found === pick.length) setTimeout(() => api.finish(T(`¡Has encontrado las ${found} parejas en ${tries} intentos!`, `Has trobat les ${found} parelles en ${tries} intents!`), found, tries), 1200); }
-        else setTimeout(() => { b1.classList.remove('up'); b2.classList.remove('up'); open = []; lock = false; }, 1400);
+          if (found === pick.length) later(() => api.finish(T(`¡Has encontrado las ${found} parejas en ${tries} intentos!`, `Has trobat les ${found} parelles en ${tries} intents!`), found, tries), 1200); }
+        else later(() => { b1.classList.remove('up'); b2.classList.remove('up'); open = []; lock = false; }, 1400);
       }
     });
     board.append(b);

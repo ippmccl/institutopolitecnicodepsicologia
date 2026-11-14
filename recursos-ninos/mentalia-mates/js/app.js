@@ -1,6 +1,7 @@
 // Mentalia Mates · app para niños. Sin datos personales: solo iniciales, fecha de nacimiento (orientativa
 // para el nivel) y un PIN de 4 números. De momento los datos se guardan en este dispositivo.
 import { OPS, opById, LESSONS_PER_UNIT, QUESTIONS, reviewGen, options } from './curriculum.js';
+import { SPEEDS, speedId, setSpeed } from './pace.js';
 import { GAMES, tableHTML } from './games.js';
 
 const KEY = 'mm-data-v1';
@@ -338,6 +339,8 @@ function gameScreen(op, g) {
       speak(msg);
     },
   };
-  screen(() => [topbar(() => opScreen(op)), h('main', { class: 'lesson game' }, h('div', { class: 'lhead', style: { '--c': op.color } }, g.e, ' ', L(g)), main)]);
+  // velocidad del juego: se elige aquí y se recuerda en este dispositivo
+  const spd = h('div', { class: 'speed', role: 'group', 'aria-label': T('Velocidad', 'Velocitat') }, SPEEDS.map(x => h('button', { class: 'spd' + (speedId() === x.id ? ' on' : ''), type: 'button', onclick: () => { setSpeed(x.id); gameScreen(op, g); } }, L(x))));
+  screen(() => [topbar(() => opScreen(op)), h('main', { class: 'lesson game' }, h('div', { class: 'lhead', style: { '--c': op.color } }, g.e, ' ', L(g)), spd, main)]);
   g.run(main, api);
 }

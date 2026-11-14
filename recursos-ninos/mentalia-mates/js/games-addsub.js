@@ -1,8 +1,9 @@
+import { later, factor } from './pace.js';
 // Mentalia Mates · juegos de sumar y restar: de lo concreto a lo abstracto. Sumar es juntar, añadir o
 // avanzar; restar es quitar, comer, pagar o retroceder. Sin prisa: se premia razonar, no la velocidad.
 const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 const shuffle = a => a.map(x => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map(x => x[1]);
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const sleep = ms => new Promise(r => later(r, ms));
 
 function optBtn(api, v, onPick) {
   const { h, speak } = api;
@@ -14,10 +15,10 @@ function ask(main, api, q, ans, onDone) {
   const { h, T, speak, speakBtn } = api;
   let err = false;
   const row = h('div', { class: 'opts' }, ...api.options(ans, 4, 3).map(v => optBtn(api, v, (val, el) => {
-    if (val === ans) { el.classList.add('glow'); speak(T(`¡Sí! ${ans}.`, `Sí! ${ans}.`)); setTimeout(() => onDone(!err), 1700); }
+    if (val === ans) { el.classList.add('glow'); speak(T(`¡Sí! ${ans}.`, `Sí! ${ans}.`)); later(() => onDone(!err), 1700); }
     else { err = true; el.classList.add('no'); speak(T('Casi. Vuelve a contar despacito.', 'Gairebé. Torna a comptar a poc a poc.')); }
   })));
-  main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), row, api.dontKnow(() => ans, () => setTimeout(() => onDone(false), 3200)));
+  main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), row, api.dontKnow(() => ans, () => later(() => onDone(false), 3200)));
   speak(q);
 }
 const CAP = ['🔴', '🔵', '🟢', '🟡', '🟣', '🟠'];
@@ -59,7 +60,7 @@ function machine(main, api) {
       const mon = h('div', { class: 'monster' }, '👾');
       const jar = h('div', { class: 'cup big' }, ...Array.from({ length: n }, () => { const c = h('button', { class: 'capi btn0', type: 'button' }, cap); c.addEventListener('click', () => {
         if (eaten >= k || c.classList.contains('gone')) return; c.classList.add('gone'); eaten++; mon.classList.remove('chomp'); void mon.offsetWidth; mon.classList.add('chomp'); speak(T(`¡Ñam! ${eaten}`, `Nyam! ${eaten}`));
-        if (eaten === k) setTimeout(() => ask(main, api, T(`${n} − ${k}: ¿cuántos tapones quedan?`, `${n} − ${k}: quants taps queden?`), n - k, good => { if (good) ok++; next(); }), 900);
+        if (eaten === k) later(() => ask(main, api, T(`${n} − ${k}: ¿cuántos tapones quedan?`, `${n} − ${k}: quants taps queden?`), n - k, good => { if (good) ok++; next(); }), 900);
       }); return c; }));
       main.append(h('h2', { class: 'qtext' }, '👾 ', q, ' ', api.speakBtn(q)), mon, jar);
       speak(q);
@@ -87,12 +88,12 @@ function numberLine(main, api) {
     const jump = d => { if (pos + d < 0 || pos + d > MAX) return; pos += d; jumps++; speak(String(pos)); draw(); };
     const here = h('button', { class: 'go big-go', type: 'button' }, '📍 ', T('¡Aquí!', 'Aquí!'));
     here.addEventListener('click', () => {
-      if (pos === target) { if (!err) ok++; speak(T(`¡Sí! ${start} ${plus ? 'más' : 'menos'} ${k} son ${target}.`, `Sí! ${start} ${plus ? 'més' : 'menys'} ${k} fan ${target}.`)); line.children[pos].classList.add('win'); setTimeout(next, 2400); }
+      if (pos === target) { if (!err) ok++; speak(T(`¡Sí! ${start} ${plus ? 'más' : 'menos'} ${k} son ${target}.`, `Sí! ${start} ${plus ? 'més' : 'menys'} ${k} fan ${target}.`)); line.children[pos].classList.add('win'); later(next, 2400); }
       else { err = true; speak(T(`Estás en el ${pos}. Recuerda: ${plus ? 'hacia delante' : 'hacia atrás'} ${k} saltos desde el ${start}.`, `Ets al ${pos}. Recorda: ${plus ? 'endavant' : 'enrere'} ${k} salts des del ${start}.`)); }
     });
     main.append(h('h2', { class: 'qtext' }, '🐸 ', q, ' ', speakBtn(q)), h('div', { class: 'ncard ' + (plus ? 'plus' : 'minus') }, `${plus ? '+' : '−'} ${k}`), h('div', { class: 'nwrap' }, line),
       h('div', { class: 'jumps' }, h('button', { class: 'ctl big', type: 'button', onclick: () => jump(-1) }, '⬅️'), h('button', { class: 'ctl big', type: 'button', onclick: () => jump(1) }, '➡️')), here,
-      api.dontKnow(() => target, () => { pos = target; draw(); setTimeout(next, 3300); }));
+      api.dontKnow(() => target, () => { pos = target; draw(); later(next, 3300); }));
     draw(); speak(q);
   }
   next();
@@ -146,7 +147,7 @@ function clips(main, api) {
     const choices = shuffle([ans, ...shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(x => x !== ans)).slice(0, 3)]).sort((x, y) => x - y);
     const row = h('div', { class: 'clipcards' }, ...choices.map(n => { const c = h('button', { class: 'ccard', type: 'button' }, h('b', {}, String(n)), dots(n), h('span', { class: 'ospk', role: 'button', onclick: e => { e.stopPropagation(); speak(String(n)); } }, '🔊'));
       c.addEventListener('click', () => {
-        if (n === ans) { if (!err) ok++; c.classList.add('clipped'); c.append(h('span', { class: 'clip' }, '🧷')); speak(T(`¡Bien! ${a} ${add ? 'más' : 'menos'} ${b} son ${ans}.`, `Molt bé! ${a} ${add ? 'més' : 'menys'} ${b} fan ${ans}.`)); setTimeout(next, 2300); }
+        if (n === ans) { if (!err) ok++; c.classList.add('clipped'); c.append(h('span', { class: 'clip' }, '🧷')); speak(T(`¡Bien! ${a} ${add ? 'más' : 'menos'} ${b} son ${ans}.`, `Molt bé! ${a} ${add ? 'més' : 'menys'} ${b} fan ${ans}.`)); later(next, 2300); }
         else { err = true; c.classList.add('no'); speak(T('Cuenta los puntos otra vez.', 'Compta els punts una altra vegada.')); }
       }); return c; }));
     main.append(h('h2', { class: 'qtext' }, '🧷 ', q, ' ', speakBtn(q)),
@@ -177,7 +178,7 @@ function shop(main, api) {
       const q = T(`Tienes ${have} cereales en tu hucha. Quieres ${name}, que cuesta ${price}. Toca los cereales para pagar.`, `Tens ${have} cereals a la guardiola. Vols ${name}, que costa ${price}. Toca els cereals per pagar.`);
       for (let i = 0; i < have; i++) { const c = h('button', { class: 'coin', type: 'button' }, '🥣'); c.addEventListener('click', () => {
         if (paid >= price || c.classList.contains('gone')) return; c.classList.add('gone'); paid++; counter.append(h('span', { class: 'paid' }, '🥣')); speak(String(paid));
-        if (paid === price) setTimeout(() => ask(main, api, T(`${have} − ${price}: tenías ${have} y has pagado ${price}. ¿Cuántos cereales te quedan?`, `${have} − ${price}: en tenies ${have} i n'has pagat ${price}. Quants cereals et queden?`), have - price, good => { if (good) ok++; next(); }), 900);
+        if (paid === price) later(() => ask(main, api, T(`${have} − ${price}: tenías ${have} y has pagado ${price}. ¿Cuántos cereales te quedan?`, `${have} − ${price}: en tenies ${have} i n'has pagat ${price}. Quants cereals et queden?`), have - price, good => { if (good) ok++; next(); }), 900);
       }); coins.append(c); }
       main.append(h('h2', { class: 'qtext' }, '🛒 ', q, ' ', speakBtn(q)), h('div', { class: 'shoprow' }, h('div', {}, pig, coins), counter));
       speak(q);
@@ -188,7 +189,7 @@ function shop(main, api) {
       for (let i = 0; i < start; i++) coins.append(h('span', { class: 'coin in' }, '🥣'));
       const pay = h('div', { class: 'coins pay' }, ...Array.from({ length: sold }, () => { const c = h('button', { class: 'coin', type: 'button' }, '🥣'); c.addEventListener('click', () => {
         if (c.classList.contains('gone')) return; c.classList.add('gone'); got++; coins.append(h('span', { class: 'coin in' }, '🥣')); speak(String(start + got));
-        if (got === sold) setTimeout(() => ask(main, api, T(`${start} + ${sold}: tenías ${start} y te han dado ${sold}. ¿Cuántos tienes ahora?`, `${start} + ${sold}: en tenies ${start} i te n'han donat ${sold}. Quants en tens ara?`), start + sold, good => { if (good) ok++; next(); }), 900);
+        if (got === sold) later(() => ask(main, api, T(`${start} + ${sold}: tenías ${start} y te han dado ${sold}. ¿Cuántos tienes ahora?`, `${start} + ${sold}: en tenies ${start} i te n'han donat ${sold}. Quants en tens ara?`), start + sold, good => { if (good) ok++; next(); }), 900);
       }); return c; }));
       main.append(h('h2', { class: 'qtext' }, '🛒 ', q, ' ', speakBtn(q)), h('div', { class: 'shoprow' }, h('div', {}, pig, coins), h('div', { class: 'counter' }, h('span', { class: 'pe' }, '🙋'), pay)));
       speak(q);

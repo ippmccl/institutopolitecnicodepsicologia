@@ -1,3 +1,4 @@
+import { later, factor } from './pace.js';
 // Mentalia Mates · juegos de multiplicar. Primero entender (filas iguales, rectángulos), luego practicar
 // jugando. Todo con voz, opciones grandes con 🔊, «No lo sé» y la tabla como apoyo visual sin castigo.
 // Cada juego recibe api = { h, T, speak, speakBtn, options, tableBtn, finish(msg) }.
@@ -36,7 +37,7 @@ function blocks(main, api) {
     };
     const ctl = (lab, f) => h('button', { class: 'ctl', type: 'button', onclick: () => { f(); draw(); speak(info.textContent); } }, lab);
     const check = h('button', { class: 'go big-go', type: 'button', onclick: () => {
-      if (rows === R && cols === C) { ok++; speak(T(`¡Perfecto! ${R} por ${C} son ${R * C}.`, `Perfecte! ${R} per ${C} fan ${R * C}.`)); box.classList.add('win'); setTimeout(next, 2200); }
+      if (rows === R && cols === C) { ok++; speak(T(`¡Perfecto! ${R} por ${C} son ${R * C}.`, `Perfecte! ${R} per ${C} fan ${R * C}.`)); box.classList.add('win'); later(next, 2200); }
       else speak(T(`Cuenta otra vez: necesitas ${R} filas y ${C} bloques en cada fila.`, `Torna a comptar: necessites ${R} files i ${C} blocs a cada fila.`));
     } }, '✔️ ', T('¡Hecho!', 'Fet!'));
     main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), h('div', { class: 'lego-ctl' },
@@ -73,7 +74,7 @@ function rectangles(main, api) {
     roll.disabled = true;
     const R = rnd(1, 6), C = rnd(1, 6);
     dice.textContent = `${DICE[R - 1]} ${DICE[C - 1]}`;
-    if (!anyFit(R, C)) { msg.textContent = T('No cabe… ¡pierdes el turno!', 'No hi cap… perds el torn!'); speak(msg.textContent); turns++; return setTimeout(botTurn, 1600); }
+    if (!anyFit(R, C)) { msg.textContent = T('No cabe… ¡pierdes el turno!', 'No hi cap… perds el torn!'); speak(msg.textContent); turns++; return later(botTurn, 1600); }
     const q = T(`${R} filas por ${C} columnas. ¿Cuántos cuadritos son?`, `${R} files per ${C} columnes. Quants quadrets són?`);
     msg.textContent = q; speak(q);
     const opts = api.options(R * C, 4, 4);
@@ -86,7 +87,7 @@ function rectangles(main, api) {
         const r0 = Math.floor(i / N), c0 = i % N;
         let [rr, cc] = fits(r0, c0, R, C) ? [R, C] : fits(r0, c0, C, R) ? [C, R] : [0, 0];
         if (!rr) { speak(T('Ahí no cabe. Prueba en otro sitio.', 'Aquí no hi cap. Prova en un altre lloc.')); return; }
-        grid.onclick = null; place(r0, c0, rr, cc, 1); mine += R * C; turns++; paint(); setTimeout(botTurn, 900);
+        grid.onclick = null; place(r0, c0, rr, cc, 1); mine += R * C; turns++; paint(); later(botTurn, 900);
       };
     })), api.dontKnow(() => R * C));
     main.insertBefore(row, grid);
@@ -95,9 +96,9 @@ function rectangles(main, api) {
     if (turns >= MAXT) return end();
     msg.textContent = T('Turno del robot 🤖', 'Torn del robot 🤖');
     const R = rnd(1, 6), C = rnd(1, 6); dice.textContent = `${DICE[R - 1]} ${DICE[C - 1]}`;
-    setTimeout(() => {
+    later(() => {
       outer: for (let r = N - 1; r >= 0; r--) for (let c = N - 1; c >= 0; c--) { if (fits(r, c, R, C)) { place(r, c, R, C, 2); robot += R * C; break outer; } if (fits(r, c, C, R)) { place(r, c, C, R, 2); robot += R * C; break outer; } }
-      turns++; paint(); speak(T(`El robot ha sacado ${R} por ${C}, ${R * C}.`, `El robot ha tret ${R} per ${C}, ${R * C}.`)); setTimeout(myTurn, 1800);
+      turns++; paint(); speak(T(`El robot ha sacado ${R} por ${C}, ${R * C}.`, `El robot ha tret ${R} per ${C}, ${R * C}.`)); later(myTurn, 1800);
     }, 1200);
   }
   function end() { api.finish(mine >= robot ? T(`¡Has ganado! Has pintado ${mine} cuadritos y el robot ${robot}.`, `Has guanyat! Has pintat ${mine} quadrets i el robot ${robot}.`) : T(`El robot ha pintado ${robot} y tú ${mine}. ¡La próxima ganas tú!`, `El robot n'ha pintat ${robot} i tu ${mine}. La propera guanyes tu!`), mine >= robot ? 1 : 0, 1); }
@@ -120,15 +121,15 @@ function cards(main, api) {
     const sc = h('div', { class: 'rscore' }, h('span', { class: 'me' }, '🧒 ', String(me)), h('span', { class: 'bot' }, '🤖 ', String(bot)));
     let done = false, tries = 0;
     const think = 9000 - Math.min(4000, round * 300);
-    const timer = setTimeout(() => { if (done) return; done = true; bot += 2; speak(T(`El robot ha sido más rápido: ${a} por ${b} son ${ans}.`, `El robot ha estat més ràpid: ${a} per ${b} fan ${ans}.`)); row.querySelectorAll('.opt').forEach(o => { if (o.firstChild.textContent === String(ans)) o.classList.add('glow'); }); setTimeout(next, 2600); }, think);
-    bar.firstChild.style.animationDuration = think + 'ms';
+    const timer = later(() => { if (done) return; done = true; bot += 2; speak(T(`El robot ha sido más rápido: ${a} por ${b} son ${ans}.`, `El robot ha estat més ràpid: ${a} per ${b} fan ${ans}.`)); row.querySelectorAll('.opt').forEach(o => { if (o.firstChild.textContent === String(ans)) o.classList.add('glow'); }); later(next, 2600); }, think);
+    bar.firstChild.style.animationDuration = (think * factor()) + 'ms';
     const row = h('div', { class: 'opts' }, ...api.options(ans, 4, Math.max(3, a)).map(v => optBtn(api, v, (val, el) => {
       if (done) return;
-      if (val === ans) { done = true; clearTimeout(timer); if (tries === 0) { me += 2; speak(T('¡Te llevas las cartas!', 'T\'endús les cartes!')); } else { me += 1; speak(T('¡Bien! Te llevas una carta.', 'Molt bé! T\'endús una carta.')); } el.classList.add('glow'); setTimeout(next, 1500); }
+      if (val === ans) { done = true; clearTimeout(timer); if (tries === 0) { me += 2; speak(T('¡Te llevas las cartas!', 'T\'endús les cartes!')); } else { me += 1; speak(T('¡Bien! Te llevas una carta.', 'Molt bé! T\'endús una carta.')); } el.classList.add('glow'); later(next, 1500); }
       else { tries++; el.classList.add('no'); }
     })));
     main.append(sc, h('div', { class: 'cardsrow' }, card(a, '♥️'), h('b', { class: 'x' }, '×'), card(b, '♠️')), h('p', { class: 'hint' }, '🤖 ', T('El robot está pensando…', 'El robot està pensant…')), bar, row,
-      api.dontKnow(() => ans, () => { done = true; clearTimeout(timer); setTimeout(next, 3200); }));
+      api.dontKnow(() => ans, () => { done = true; clearTimeout(timer); later(next, 3200); }));
     speak(`${a} ${T('por', 'per')} ${b}`);
   }
   next();
@@ -152,7 +153,7 @@ function swatter(main, api) {
         h('span', { class: 'ospk', role: 'button', onclick: e => { e.stopPropagation(); speak(String(v)); } }, '🔊'));
       f._v = v;
       f.addEventListener('click', () => {
-        if (v === ans) { if (!err) ok++; f.classList.add('hit'); f.querySelector('.fe').textContent = '💥'; speak(T(`¡Cazada! ${q} son ${ans}.`, `Caçada! ${q} fan ${ans}.`)); setTimeout(next, 1500); }
+        if (v === ans) { if (!err) ok++; f.classList.add('hit'); f.querySelector('.fe').textContent = '💥'; speak(T(`¡Cazada! ${q} son ${ans}.`, `Caçada! ${q} fan ${ans}.`)); later(next, 1500); }
         else { err = true; f.classList.add('no'); speak(T('¡Esa mosca se ha escapado! Prueba otra.', 'Aquesta mosca s\'ha escapat! Prova\'n una altra.')); }
       });
       return f;
@@ -190,8 +191,8 @@ function shutbox(main, api) {
     tiles.forEach(t => { if (!closed.has(+t.textContent)) t.disabled = false; });
     let tries = 0;
     tiles.forEach(t => { t.onclick = () => {
-      if (+t.textContent === p) { closed.add(p); t.classList.add('closed'); t.disabled = true; tiles.forEach(x => { x.onclick = null; x.disabled = true; }); speak(T(`¡Sí! ${a} por ${b} son ${p}. Tapa cerrada.`, `Sí! ${a} per ${b} fan ${p}. Tapa tancada.`)); upd(); if (closed.size === TILES.length || rolls >= MAXR) setTimeout(endGame, 1400); else roll.disabled = false; }
-      else { tries++; t.classList.add('no'); setTimeout(() => t.classList.remove('no'), 600); speak(T('Esa no. Vuelve a multiplicar.', 'Aquesta no. Torna a multiplicar.')); if (tries >= 2) target.classList.add('glow'); }
+      if (+t.textContent === p) { closed.add(p); t.classList.add('closed'); t.disabled = true; tiles.forEach(x => { x.onclick = null; x.disabled = true; }); speak(T(`¡Sí! ${a} por ${b} son ${p}. Tapa cerrada.`, `Sí! ${a} per ${b} fan ${p}. Tapa tancada.`)); upd(); if (closed.size === TILES.length || rolls >= MAXR) later(endGame, 1400); else roll.disabled = false; }
+      else { tries++; t.classList.add('no'); later(() => t.classList.remove('no'), 600); speak(T('Esa no. Vuelve a multiplicar.', 'Aquesta no. Torna a multiplicar.')); if (tries >= 2) target.classList.add('glow'); }
     }; });
     upd();
   });

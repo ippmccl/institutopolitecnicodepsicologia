@@ -1,3 +1,4 @@
+import { later, factor } from './pace.js';
 // Mentalia Mates · juegos de números y cantidades: tocar, construir y mover antes del número escrito.
 const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
 const shuffle = a => a.map(x => [Math.random(), x]).sort((p, q) => p[0] - q[0]).map(x => x[1]);
@@ -14,10 +15,10 @@ function ask(main, api, q, ans, onDone, opts) {
   const { h, T, speak, speakBtn } = api;
   let err = false;
   const row = h('div', { class: 'opts' }, ...(opts || api.options(ans, 4, 3)).map(v => optBtn(api, v, (val, el) => {
-    if (val === ans) { el.classList.add('glow'); speak(T(`¡Sí! ${ans}.`, `Sí! ${ans}.`)); setTimeout(() => onDone(!err), 1700); }
+    if (val === ans) { el.classList.add('glow'); speak(T(`¡Sí! ${ans}.`, `Sí! ${ans}.`)); later(() => onDone(!err), 1700); }
     else { err = true; el.classList.add('no'); speak(T('Casi. Vuelve a mirarlo.', 'Gairebé. Torna-ho a mirar.')); }
   })));
-  main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), row, api.dontKnow(() => ans, () => setTimeout(() => onDone(false), 3200)));
+  main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), row, api.dontKnow(() => ans, () => later(() => onDone(false), 3200)));
   speak(q);
 }
 let actx = null;
@@ -37,7 +38,7 @@ function towers(main, api) {
       const slot = h('div', { class: 'tslot' });
       const draw = () => { slot.innerHTML = ''; slot.append(tower(have, '#4C9BE8')); };
       const done = h('button', { class: 'go big-go', type: 'button' }, '✔️ ', T('¡Hecho!', 'Fet!'));
-      done.addEventListener('click', () => { if (have === n) { ok++; speak(T(`¡Torre de ${n}!`, `Torre de ${n}!`)); setTimeout(next, 1800); } else speak(T(`Tu torre tiene ${have}. Necesitas ${n}.`, `La teva torre en té ${have}. En necessites ${n}.`)); });
+      done.addEventListener('click', () => { if (have === n) { ok++; speak(T(`¡Torre de ${n}!`, `Torre de ${n}!`)); later(next, 1800); } else speak(T(`Tu torre tiene ${have}. Necesitas ${n}.`, `La teva torre en té ${have}. En necessites ${n}.`)); });
       main.append(h('h2', { class: 'qtext' }, '🧱 ', q, ' ', speakBtn(q)), slot, h('div', { class: 'jumps' },
         h('button', { class: 'ctl big', type: 'button', onclick: () => { if (have > 0) have--; draw(); speak(String(have)); } }, '➖'),
         h('button', { class: 'ctl big', type: 'button', onclick: () => { if (have < 15) have++; draw(); speak(String(have)); } }, '➕')), done);
@@ -71,7 +72,7 @@ function rods(main, api) {
       const r = rod(n); r.setAttribute('role', 'button');
       r.addEventListener('click', () => {
         speak(String(n));
-        if (n === need) { if (!err) ok++; row.lastChild.replaceWith(rod(need)); speak(T(`¡Sí! ${a} y ${need} hacen ${total}.`, `Sí! ${a} i ${need} fan ${total}.`)); setTimeout(next, 2400); }
+        if (n === need) { if (!err) ok++; row.lastChild.replaceWith(rod(need)); speak(T(`¡Sí! ${a} y ${need} hacen ${total}.`, `Sí! ${a} i ${need} fan ${total}.`)); later(next, 2400); }
         else { err = true; r.classList.add('no'); speak(T(n > need ? 'Esa es demasiado larga.' : 'Esa es demasiado corta.', n > need ? 'Aquesta és massa llarga.' : 'Aquesta és massa curta.')); }
       }); return r;
     }));
@@ -127,14 +128,14 @@ function board(main, api) {
     const i = [...cells.children].indexOf(c);
     if (i !== me + 1) { speak(T(`La siguiente es la ${me + 1}.`, `La següent és la ${me + 1}.`)); return; }
     me++; steps++; draw(); speak(String(me));
-    if (me >= N) return setTimeout(() => api.finish(T('¡Has llegado a la meta! 🏁', 'Has arribat a la meta! 🏁'), 1, 1), 800);
-    if (steps === need) { need = 0; setTimeout(botTurn, 900); }
+    if (me >= N) return later(() => api.finish(T('¡Has llegado a la meta! 🏁', 'Has arribat a la meta! 🏁'), 1, 1), 800);
+    if (steps === need) { need = 0; later(botTurn, 900); }
   });
   function botTurn() {
     const d = rnd(1, 6); dice.textContent = DICE[d - 1]; bot = Math.min(N, bot + d); draw();
     say(T(`El robot saca ${d} y va a la ${bot}.`, `El robot treu ${d} i va a la ${bot}.`));
-    if (bot >= N) return setTimeout(() => api.finish(T('¡El robot ha llegado primero! La próxima vez ganas tú.', 'El robot ha arribat primer! La propera vegada guanyes tu.'), 0, 1), 1500);
-    setTimeout(() => { roll.disabled = false; say(T('¡Tu turno!', 'El teu torn!')); }, 1600);
+    if (bot >= N) return later(() => api.finish(T('¡El robot ha llegado primero! La próxima vez ganas tú.', 'El robot ha arribat primer! La propera vegada guanyes tu.'), 0, 1), 1500);
+    later(() => { roll.disabled = false; say(T('¡Tu turno!', 'El teu torn!')); }, 1600);
   }
   main.append(msg, dice, roll, cells);
   draw(); say(T('Tira el dado y avanza tantas casillas como puntos salgan.', 'Tira el dau i avança tantes caselles com punts surtin.'));
@@ -160,8 +161,8 @@ function treasure(main, api) {
           return; }
         if (found < k || c.classList.contains('done')) return;
         if (n === sorted[idx]) { c.classList.add('done'); line.append(h('span', { class: 'tn' }, String(n))); idx++; speak(String(n));
-          if (idx === k) { if (!err) ok++; speak(T('¡Ordenados! Has encontrado el tesoro 💎', 'Ordenats! Has trobat el tresor 💎')); setTimeout(next, 2400); } }
-        else { err = true; c.classList.add('no'); setTimeout(() => c.classList.remove('no'), 600); speak(T(`Busca el más pequeño que queda.`, `Busca el més petit que queda.`)); }
+          if (idx === k) { if (!err) ok++; speak(T('¡Ordenados! Has encontrado el tesoro 💎', 'Ordenats! Has trobat el tresor 💎')); later(next, 2400); } }
+        else { err = true; c.classList.add('no'); later(() => c.classList.remove('no'), 600); speak(T(`Busca el más pequeño que queda.`, `Busca el més petit que queda.`)); }
       });
       return c;
     }));
@@ -189,18 +190,18 @@ function claps(main, api) {
       const btn = h('button', { class: 'clapbtn', type: 'button' }, '👏');
       btn.addEventListener('click', () => { c++; clap(); cnt.append(h('span', {}, '👏')); btn.classList.remove('hit'); void btn.offsetWidth; btn.classList.add('hit'); });
       const done = h('button', { class: 'go big-go', type: 'button' }, '✔️ ', T('¡Ya está!', 'Ja està!'));
-      done.addEventListener('click', () => { if (c === n) { ok++; speak(T(`¡${n} palmadas!`, `${n} picades!`)); setTimeout(next, 1600); } else { speak(T(`Has dado ${c}. Vuelve a empezar: ${n}.`, `N'has fet ${c}. Torna a començar: ${n}.`)); c = 0; cnt.innerHTML = ''; } });
+      done.addEventListener('click', () => { if (c === n) { ok++; speak(T(`¡${n} palmadas!`, `${n} picades!`)); later(next, 1600); } else { speak(T(`Has dado ${c}. Vuelve a empezar: ${n}.`, `N'has fet ${c}. Torna a començar: ${n}.`)); c = 0; cnt.innerHTML = ''; } });
       main.append(h('h2', { class: 'qtext' }, q, ' ', speakBtn(q)), big, btn, cnt, done);
       speak(q);
     } else {
       const q = T('Escucha las palmadas. ¿Cuántas hay?', 'Escolta les picades. Quantes n\'hi ha?');
       const play = h('button', { class: 'go big-go', type: 'button' }, '👂 ', T('Escuchar', 'Escoltar'));
       const vis = h('div', { class: 'clapcount' });
-      const run = () => { vis.innerHTML = ''; for (let i = 0; i < n; i++) setTimeout(() => { clap(); vis.append(h('span', {}, '👏')); }, 600 + i * 550); };
+      const run = () => { vis.innerHTML = ''; for (let i = 0; i < n; i++) later(() => { clap(); vis.append(h('span', {}, '👏')); }, 600 + i * 550); };
       play.addEventListener('click', run);
       main.append(play, vis);
       ask(main, api, q, n, g => { if (g) ok++; next(); });
-      setTimeout(run, 1500);
+      later(run, 1500);
     }
   }
   next();

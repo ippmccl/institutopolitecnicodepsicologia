@@ -286,3 +286,8 @@ main { padding-bottom: max(3rem, env(safe-area-inset-bottom)); }
 .clapbtn { width: 140px; height: 140px; border-radius: 50%; border: 0; background: #FFE0B2; font-size: 4rem; box-shadow: 0 6px 0 #0002; } .clapbtn.hit { animation: pop .25s; }
 .clapcount { min-height: 3rem; font-size: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem; margin: .5rem 0; }
 @media (max-width: 600px) { .board { grid-template-columns: repeat(6, minmax(0, 1fr)); } .chest { width: 76px; height: 76px; font-size: 2.4rem; } .tb { width: 44px; height: 14px; } .towers2 { gap: 1.6rem; } .clapbtn { width: 116px; height: 116px; } }
+
+/* velocidad de los juegos */
+.speed { display: flex; gap: .4rem; justify-content: center; flex-wrap: wrap; margin: .4rem 0 .6rem; }
+.spd { border: 2px solid #CBD5E1; background: #fff; border-radius: 999px; padding: .35rem .8rem; font-weight: 800; font-size: .95rem; cursor: pointer; }
+.spd.on { background: #2B6E8B; border-color: #2B6E8B; color: #fff; }
