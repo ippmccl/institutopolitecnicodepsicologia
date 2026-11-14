@@ -564,7 +564,6 @@ body.has-cookie-banner .whatsapp-float { bottom: 132px; }
 .related-posts a::before { content: "→ "; text-decoration: none; display: inline-block; margin-right: 4px; }
 .related-posts a:hover { text-decoration-thickness: 2px; }
 
-/* Texto justificado en los artículos del blog */
+/* Texto justificado en los artículos del blog (también en móvil) */
 .articulo section .container > p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 .articulo .btn-row, .articulo .related-posts { text-align: left; }
-@media (max-width: 480px) { .articulo section .container > p { text-align: left; } }
