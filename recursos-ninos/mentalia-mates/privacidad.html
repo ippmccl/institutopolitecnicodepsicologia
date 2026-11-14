@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacidad · Mentalia Mates</title>
+<style>
+:root { --ink: #23303a; --bg: #FFF8E7; --card: #fff; --teal: #2B6E8B; --muted: #5f6b75; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink: #eef2f4; --bg: #16202a; --card: #22303c; --muted: #a8b3bc; } }
+body { margin: 0; font: 17px/1.55 system-ui, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+main { max-width: 760px; margin: 0 auto; padding: 1.2rem 16px 3rem; }
+h1 { color: var(--teal); font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+.box { background: var(--card); border-radius: 18px; padding: 1rem 1.2rem; margin: 1rem 0; }
+a { color: var(--teal); } .muted { color: var(--muted); font-size: .9rem; }
+button { font: inherit; font-weight: 700; border: 0; border-radius: 14px; padding: .7rem 1.2rem; background: #E85C4C; color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<main>
+  <p><a href="./">⬅️ Volver a Mentalia Mates</a></p>
+  <h1>🧮 Mentalia Mates · Privacidad para las familias</h1>
+  <div class="box">
+    <p><b>Mentalia Mates no recoge datos personales.</b> Para jugar solo se pide:</p>
+    <ul>
+      <li>las <b>iniciales</b> del niño o la niña (no su nombre);</li>
+      <li>su <b>fecha de nacimiento</b>, solo como orientación para el nivel;</li>
+      <li>un <b>número secreto de 4 cifras</b>, que se guarda cifrado.</li>
+    </ul>
+    <p>Esta información y el progreso del juego (lecciones, estrellas y copas) <b>se guardan únicamente en este dispositivo</b>, en el propio navegador. No se envían a ningún servidor, no se comparten con nadie y no se usan para publicidad.</p>
+    <p>Por eso, si se juega en otro móvil, tablet u ordenador, el recorrido empieza de nuevo en ese dispositivo.</p>
+  </div>
+  <h2>Borrar los datos</h2>
+  <div class="box">
+    <p>Puedes borrar en cualquier momento todos los perfiles y el progreso de Mentalia Mates guardados en este dispositivo.</p>
+    <button type="button" id="del">🗑️ Borrar todos los datos de Mentalia Mates de este dispositivo</button>
+    <p id="msg" class="muted"></p>
+  </div>
+  <h2>Responsable</h2>
+  <div class="box">
+    <p>Instituto Politécnico de Psicología® · M. Carmen Cabello León, Psicóloga General Sanitaria (Col. COPC Nº 27366).</p>
+    <p>Mentalia Mates es un recurso educativo gratuito de uso autónomo. No sustituye una sesión de terapia ni forma parte de los servicios asistenciales del Instituto.</p>
+    <p class="muted">Más información en la <a href="../../politica-privacidad.html">política de privacidad</a> de la web.</p>
+  </div>
+</main>
+<script>
+document.getElementById('del').addEventListener('click', () => {
+  if (!confirm('¿Seguro? Se borrarán todos los perfiles y el progreso de Mentalia Mates en este dispositivo. No se puede deshacer.')) return;
+  try { localStorage.removeItem('mm-data-v1'); localStorage.removeItem('mm-handoff'); } catch (e) { /* nada */ }
+  document.getElementById('msg').textContent = 'Datos borrados.';
+});
+</script>
+</body>
+</html>
