@@ -1,0 +1,18 @@
+# Instituto Politécnico de Psicología
+
+> Centro de psicología y formación (M. Carmen Cabello León, psicóloga general sanitaria, COPC 27366). Ofrece formación para profesionales, recursos y guías, y recursos gratuitos para niños.
+
+## Recursos para niños (gratuitos)
+
+- [Recursos para niños](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/): portada del apartado.
+- [Mentalia Mates](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/mentalia-mates/): aplicación web gratuita, sin anuncios ni registro, para aprender matemáticas en infantil y primaria (números, sumas, restas, tablas de multiplicar, divisiones, fracciones). Con voz en cada opción, botón «No lo sé» y más de 20 juegos. En castellano y catalán. Los datos se guardan solo en el dispositivo.
+- [Juegos de matemáticas](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/juegos-matematicas.html): Juegos de matemáticas gratis para niños de infantil y primaria: sumas, restas, multiplicaciones y fracciones con voz y dibujos. Sin anuncios y sin registro.
+- [Tablas de multiplicar](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/tablas-de-multiplicar.html): Aprende las tablas de multiplicar jugando: entender qué es multiplicar, practicar cada tabla en orden y repasar con juegos. Gratis, con voz y sin anuncios.
+- [Aprender los números](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/aprender-numeros.html): Juegos para aprender los números: contar, reconocer cantidades, decenas y unidades, ordenar y comparar. Para niños de 4 a 8 años, con voz y sin anuncios.
+- [Recursos para la discalculia](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/discalculia.html): Discalculia en niños: qué es, señales de alerta y cómo ayudar en casa y en el colegio. Recursos y juegos gratuitos para trabajar el sentido del número.
+
+## Más
+
+- [Recursos digitales](https://www.institutopolitecnicodepsicologia.es/recursos-digitales/index.html)
+- [Formación](https://www.institutopolitecnicodepsicologia.es/formacion/index.html)
+- [Contacto](https://www.institutopolitecnicodepsicologia.es/contacto.html)
