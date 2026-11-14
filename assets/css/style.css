@@ -85,19 +85,6 @@ section { padding: 72px 0; }
 .section-alt { background: var(--color-bg-alt); }
 .section-lavender { background: var(--color-lavender-50); }
 
-.eyebrow {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: .78rem;
-  color: var(--color-sage-700);
-  background: var(--color-sage-100);
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 16px;
-}
 
 .section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
 .section-head p { color: var(--color-text-soft); }
@@ -435,8 +422,6 @@ textarea { min-height: 130px; resize: vertical; }
 .form-status.error { display: block; background: var(--color-rose-100); color: #9a2f5e; }
 
 /* ---------- Migas de pan ---------- */
-.breadcrumb { font-size: .85rem; color: var(--color-text-soft); margin-bottom: 20px; }
-.breadcrumb a { color: var(--color-lavender-700); font-weight: 700; }
 
 /* ---------- Aviso de cookies ---------- */
 .cookie-banner {
