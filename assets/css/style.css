@@ -544,3 +544,15 @@ body.has-cookie-banner .whatsapp-float { bottom: 132px; }
 .faq-item[open] summary::after { content: "\2212"; }
 .faq-item summary:focus-visible { outline: 2px solid var(--color-lavender-600); outline-offset: 2px; }
 .faq-item p { padding: 0 22px 20px; margin: 0; color: var(--color-text-soft); }
+
+/* 14/11/2026: en tablet (761-1100 px) el menú ampliado no cabía y cortaba
+   el botón de llamada; se compacta y se oculta el botón (Contacto ya está). */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .main-nav > ul { gap: 2px; }
+  .nav-link { padding-left: 8px; padding-right: 8px; font-size: .88rem; }
+  .nav-cta { display: none; }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .nav-link { padding-left: 6px; padding-right: 6px; font-size: .8rem; }
+  .header-inner { padding-left: 14px; padding-right: 14px; }
+}
