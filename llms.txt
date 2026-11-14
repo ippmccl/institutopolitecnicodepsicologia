@@ -1,6 +1,38 @@
 # Instituto Politécnico de Psicología
 
-> Centro de psicología y formación (M. Carmen Cabello León, psicóloga general sanitaria, COPC 27366). Ofrece formación para profesionales, recursos y guías, y recursos gratuitos para niños.
+> Psicología online por videollamada con M. Carmen Cabello León (María del Carmen Cabello León), Psicóloga General Sanitaria con máster oficial en Neuropsicología, colegiada en el Col·legi Oficial de Psicologia de Catalunya (COPC) con el número 27366. Atiende online a adolescentes (desde 12 años), adultos y personas mayores de toda España, en castellano. La atención presencial y la evaluación neuropsicológica se hacen en Espai Salut, en Rubí (Barcelona). También crea formación para profesionales, guías y cuadernos descargables, y recursos gratuitos para niños.
+
+## Datos clave
+
+- Profesional: M. Carmen Cabello León, Psicóloga General Sanitaria, COPC 27366.
+- Modalidad: terapia online por videollamada, en castellano, para toda España.
+- Presencial: Espai Salut, Rubí (Barcelona), incluida la evaluación neuropsicológica.
+- Edades online: adolescentes (12-17 años), adultos y personas mayores. No hay sesiones online para infancia.
+- Cómo empezar: llamada gratuita de unos 15 minutos, sin compromiso, y después primera sesión por videollamada.
+- Contacto: teléfono y WhatsApp +34 644 46 73 53 · [formulario de contacto](https://www.institutopolitecnicodepsicologia.es/contacto.html).
+
+## Terapia online
+
+- [Psicología online y terapia individual](https://www.institutopolitecnicodepsicologia.es/): portada; cómo funciona y preguntas frecuentes.
+- [Terapia online por edades](https://www.institutopolitecnicodepsicologia.es/areas-de-trabajo/): adolescentes, adultos y tercera edad.
+- [Psicología para adolescentes](https://www.institutopolitecnicodepsicologia.es/areas-de-trabajo/psicologia-adolescentes.html): terapia individual online de 12/13 a 17 años y orientación a las familias.
+- [Psicología para adultos](https://www.institutopolitecnicodepsicologia.es/areas-de-trabajo/psicologia-adultos.html): ansiedad, estrés, autoestima y duelo.
+- [Psicología para personas mayores](https://www.institutopolitecnicodepsicologia.es/areas-de-trabajo/psicologia-tercera-edad.html): soledad, pérdidas, adaptación a cambios y bienestar emocional.
+- [Neuropsicología](https://www.institutopolitecnicodepsicologia.es/areas-de-trabajo/neuropsicologia.html): la evaluación neuropsicológica es presencial, en Espai Salut (Rubí, Barcelona).
+- [Tarifas y cómo funciona](https://www.institutopolitecnicodepsicologia.es/tarifas.html): primera toma de contacto gratuita y sesiones online.
+- [Sobre M. Carmen Cabello León](https://www.institutopolitecnicodepsicologia.es/sobre-el-instituto.html): formación, colegiación y forma de trabajar.
+
+## Recorridos Guiados®, publicaciones y blog
+
+- [Recorridos Guiados®](https://www.institutopolitecnicodepsicologia.es/recorridos-guiados/): método propio y registrado, en formato grabado, para acompañar procesos emocionales a tu ritmo. Complementa la terapia, no la sustituye.
+- [«Días de ansiedad»](https://www.institutopolitecnicodepsicologia.es/publicaciones.html): libro de M. Carmen Cabello León.
+- [Blog de psicología](https://www.institutopolitecnicodepsicologia.es/blog/): ansiedad, ataques de pánico, agorafobia, depresión, duelo, sueño, TDAH, TEA y más, con guías descargables.
+
+## Formación y recursos
+
+- [Formación](https://www.institutopolitecnicodepsicologia.es/formacion/index.html): cursos de psicología online con evaluación y certificado para profesionales de la educación, la salud y el ámbito psicosocial.
+- [Recursos digitales](https://www.institutopolitecnicodepsicologia.es/recursos-digitales/index.html): guías y cuadernos descargables para adultos, familias y profesionales.
+- [Acceso PsicoApp](https://psicoapp-theta.vercel.app): área privada para pacientes y profesionales.
 
 ## Recursos para niños (gratuitos)
 
@@ -10,12 +42,6 @@
 - [Tablas de multiplicar](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/tablas-de-multiplicar.html): Aprende las tablas de multiplicar jugando: entender qué es multiplicar, practicar cada tabla en orden y repasar con juegos. Gratis, con voz y sin anuncios.
 - [Aprender los números](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/aprender-numeros.html): Juegos para aprender los números: contar, reconocer cantidades, decenas y unidades, ordenar y comparar. Para niños de 4 a 8 años, con voz y sin anuncios.
 - [Recursos para la discalculia](https://www.institutopolitecnicodepsicologia.es/recursos-ninos/discalculia.html): Discalculia en niños: qué es, señales de alerta y cómo ayudar en casa y en el colegio. Recursos y juegos gratuitos para trabajar el sentido del número.
-
-## Más
-
-- [Recursos digitales](https://www.institutopolitecnicodepsicologia.es/recursos-digitales/index.html)
-- [Formación](https://www.institutopolitecnicodepsicologia.es/formacion/index.html)
-- [Contacto](https://www.institutopolitecnicodepsicologia.es/contacto.html)
 
 ## Recursos para psicólogos
 - [Página web para psicólogos y centros de psicología, hecha a medida](https://www.institutopolitecnicodepsicologia.es/recursos-psicologos/): diseño web a medida para psicólogos (online, consulta presencial o centro), con SEO, posicionamiento en buscadores e IA (AEO) y parte legal RGPD.
